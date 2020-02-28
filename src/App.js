@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Form from '../src/formPage/form'
-import Todo from './components/todo'
+// import Form from './components/form/form';
+import Todo from './components/todo/todo';
 
 function App() {
   return (
