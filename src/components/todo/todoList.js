@@ -1,47 +1,31 @@
-import React,{Component} from 'react';
-import TodoList from './todoList';
-import AddTodo from '../todo/addTodo';
-
-class Todo extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            myTodos: [
-                {id:1, title: 'Repair my Phones charging port', status: true},
-                {id:2, title: 'Buy airtel mifi', status: true},
-                {id:3, title: 'Buy insence', status: true},
-                {id:3, title: 'Give crucifix in church', status: true},
-                {id:3, title: 'Go for saturday work', status: true},
-            ]
-        }  
-    }
-    deleteTodo = (id) =>  {
-        // console.log(id)  
-    const deleteMyTodos = this.state.myTodos.filter(todo => {
-    return todo.id !== id });
-    this.setState({todos: deleteMyTodos})
-    }
-    addTodo = (event) => {
-        // console.log(id)
-    }
-    componentDidMount() {
-        console.log('component mouted')
-    }
-    componentDidUpdate(preProps, prevState) {
-        console.log('component updated');  
-    }
-
-    render() {
-        //  console.log(this.state.myTodos)
-        return(
+import React from 'react';   
+ 
+const TodoList = ({myTodos, deleteTodo, addTodo}) => {
+    const myTodoList = myTodos.length ? (myTodos.map((m,i)=> {
+        return (
+        <div key={i} style={{borderBottom:'2px groove black', margin:'3%',borderRadius:'3px', width: '130%', padding:'10px'}}>
             <div>
-                <AddTodo addTodo={this.addTodo} />
-                <TodoList myTodos={this.state.myTodos} deleteTodo={this.deleteTodo} />
+                {m.title}
+            <span style={{color:'#fff', borderRadius: '100%', backgroundColor: 'red', margin: '15px',padding: '2px'}} onClick={()=> {deleteTodo(m.id)}}>x</span>
+            </div>
+            <div>{m.status}</div>    
+        </div> )})) 
+        : 
+        (<p>You have no Todos</p>)
+
+    const myAddTodo = (myTodos =()=> {
+        return (
+            <div style={{borderBottom:'2px groove black', margin:'3%',borderRadius:'3px'}}>
+
             </div>
         )
-    }
-    
+    })
+    return(
+        <div>
+            {myTodoList}
+        </div>
+    )
+   
 }
-export default Todo;
-
+export default TodoList;
 

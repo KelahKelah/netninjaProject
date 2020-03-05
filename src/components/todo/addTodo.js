@@ -5,23 +5,26 @@ class AddTodo extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            newTodo: ''
+            title: ''
         }
         }
     handleChange = (e) => {
         // console.log(this.state)
-        this.setState({newTodo: e.target.value})
+        this.setState({title: e.target.value})
     }
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log(this.state)
+        this.props.addTodo(this.state)
+        // console.log(this.state)
     }
     render() {
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
+                    <div>
                     <label>Add a new todo</label>
-                    <input type="text" onChange={this.handleChange} style={{margin:'3%',width:'900%'}} />
+                    </div>
+                    <input type="text" onChange={this.handleChange} style={{margin:'3%', width:'130%', display: 'flex', justifyContent: 'center'}} />
                 </form>
             </div>
         )

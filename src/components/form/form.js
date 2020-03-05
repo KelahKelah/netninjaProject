@@ -25,7 +25,7 @@ class Form extends Component {
     render() {
         console.log("my object",this.state.email)
         return(
-            <div>
+            <div style={{}}>
                 <form onSubmit={this.handleSubmit}>
                     <label>Email</label> <br /><br />
                     <input type="text" onChange={this.handleDataChange} id="email" /> <br /><br />

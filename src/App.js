@@ -6,7 +6,6 @@ import Home from '../src/page/home/home'
 import Contact from '../src/page/contact/contact'
 import Logout from '../src/page/logout/logout'
 
-
 class App extends Component {
   render() {
     return (
