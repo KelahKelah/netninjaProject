@@ -9,21 +9,15 @@ class Todo extends Component {
         super(props)
         this.state = {
             //chnaged object name from mytodos to todos because of the endpoint
-            todos: [
-                {id:1, title: 'Repair my Phones charging port', status: true},
-                {id:2, title: 'Buy airtel mifi', status: true},
-                {id:3, title: 'Buy insence', status: true},
-                {id:4, title: 'Give crucifix in church', status: true},
-                {id:5, title: 'Go for saturday work', status: true},
-            ]
+            todos: [ ]
         }  
     }
 
     componentDidMount() {
         Axios.get('https://jsonplaceholder.typicode.com/todos')
-        .then(response => {
-
-            console.log(response)
+        .then(res => {
+            this.setState({todos: res.data.slice(0,5)})
+            // console.log(res)
         })
     }
     
@@ -33,10 +27,10 @@ class Todo extends Component {
 
     deleteTodo = (id) =>  {
         // console.log(id)  
-    const deleteMyTodos = this.state.myTodos.filter(todo => {
+    const deleteMyTodos = this.state.todos.filter(todo => {
     return todo.id !== id });
     // console.log(deleteMyTodos)
-    this.setState({myTodos: deleteMyTodos})
+    this.setState({todos: deleteMyTodos})
     }
     
     addTodo = (event) => {
