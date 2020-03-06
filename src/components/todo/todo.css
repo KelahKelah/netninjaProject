@@ -1,0 +1,10 @@
+.wrap {
+    border: 2px solid #4d4d33;
+    background-color: #c2c2a3;
+    width: 50vw;
+    height: 60vh;
+    margin: 5% auto;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}

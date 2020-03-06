@@ -47,7 +47,7 @@ class Todo extends Component {
             <div className="wrap">
                 <div>
                     <AddTodo addTodo={this.addTodo} />
-                    {/* changed object name from mytodos to todos because of the endpoint */}
+                    {/* changed object name  todos to match endpoint */}
                     <TodoList myTodos={this.state.todos} deleteTodo={this.deleteTodo} />
                 </div>
             </div>
