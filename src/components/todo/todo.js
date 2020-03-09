@@ -8,7 +8,6 @@ class Todo extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            //chnaged object name from mytodos to todos because of the endpoint
             todos: [ ]
         }  
     }
@@ -50,6 +49,7 @@ class Todo extends Component {
                     {/* changed object name  todos to match endpoint */}
                     <TodoList myTodos={this.state.todos} deleteTodo={this.deleteTodo} />
                 </div>
+           
             </div>
         )
     }

@@ -7,6 +7,7 @@ const TodoList = ({myTodos, deleteTodo, addTodo}) => {
             <div>
                 {m.title}
             <span style={{color:'#fff', borderRadius: '100%', backgroundColor: 'red', margin: '15px',padding: '2px'}} onClick={()=> {deleteTodo(m.id)}}>x</span>
+
             </div>
             <div>{m.status}</div>    
         </div> )})) 
@@ -28,4 +29,5 @@ const TodoList = ({myTodos, deleteTodo, addTodo}) => {
    
 }
 export default TodoList;
+
 

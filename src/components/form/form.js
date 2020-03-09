@@ -25,7 +25,7 @@ class Form extends Component {
     render() {
         console.log("my object",this.state.email)
         return(
-            <div style={{}}>
+            <div>
                 <form onSubmit={this.handleSubmit}>
                     <label>Email</label> <br /><br />
                     <input type="text" onChange={this.handleDataChange} id="email" /> <br /><br />
@@ -39,5 +39,5 @@ class Form extends Component {
         )
     }
 }
-export default Form
 
+export default Form;
