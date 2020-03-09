@@ -1,42 +1,55 @@
 import React,{Component} from 'react';
 import TodoList from './todoList';
 import AddTodo from '../todo/addTodo';
+import './todo.css';
+import Axios from 'axios';
 
 class Todo extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            myTodos: [
-                {id:1, title: 'Repair my Phones charging port', status: true},
-                {id:2, title: 'Buy airtel mifi', status: true},
-                {id:3, title: 'Buy insence', status: true},
-                {id:3, title: 'Give crucifix in church', status: true},
-                {id:3, title: 'Go for saturday work', status: true},
-            ]
+            todos: [ ]
         }  
     }
-    deleteTodo = (id) =>  {
-        // console.log(id)  
-    const deleteMyTodos = this.state.myTodos.filter(todo => {
-    return todo.id !== id });
-    this.setState({todos: deleteMyTodos})
-    }
-    addTodo = (event) => {
-        // console.log(id)
-    }
+
     componentDidMount() {
-        console.log('component mouted')
+        Axios.get('https://jsonplaceholder.typicode.com/todos')
+        .then(res => {
+            this.setState({todos: res.data.slice(0,5)})
+            // console.log(res)
+        })
     }
+    
     componentDidUpdate(preProps, prevState) {
         console.log('component updated');  
     }
 
+    deleteTodo = (id) =>  {
+        // console.log(id)  
+    const deleteMyTodos = this.state.todos.filter(todo => {
+    return todo.id !== id });
+    // console.log(deleteMyTodos)
+    this.setState({todos: deleteMyTodos})
+    }
+    
+    addTodo = (event) => {
+        // console.log(event)
+        event.id = Math.random()
+        let todo = [...this.state.todos, event]
+        console.log(event)
+        this.setState({todos: todo})
+    }
+    
     render() {
         //  console.log(this.state.myTodos)
         return(
-            <div>
-                <AddTodo addTodo={this.addTodo} />
-                <TodoList myTodos={this.state.myTodos} deleteTodo={this.deleteTodo} />
+            <div className="wrap">
+                <div>
+                    <AddTodo addTodo={this.addTodo} />
+                    {/* changed object name  todos to match endpoint */}
+                    <TodoList myTodos={this.state.todos} deleteTodo={this.deleteTodo} />
+                </div>
+           
             </div>
         )
     }

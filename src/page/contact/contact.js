@@ -1,5 +1,5 @@
 import React from 'react';
-import Form from '../../components/form/form'
+import Form from '../../components/form/form';
 
 const Contact = () => {
     return(
@@ -9,3 +9,6 @@ const Contact = () => {
     )
 }
 export default Contact;
+
+
+
