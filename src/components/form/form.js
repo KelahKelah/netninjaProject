@@ -10,7 +10,7 @@ class Form extends Component {
             }
     }
     handleDataChange = (e) => {
-        // this.setState({emial:event.target.value})
+        // this.setState({email:event.target.value})
         // this.setState({username:event.target.value})
         // this.setState({password:event.target.value})
         this.setState({[e.target.id]:e.target.value})

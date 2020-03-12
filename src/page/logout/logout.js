@@ -11,6 +11,12 @@ class Logout extends Component {
     handleChange() {
         this.setState({logout:'Ok! you are Logged out '})
     }
+    handleSubmit() {
+        localStorage.setItem(user,)
+    }
+    // localStorage.clear() {
+
+    // }
     render() {
         // console.log('yes',this.state.logout)
         return(
@@ -23,4 +29,5 @@ class Logout extends Component {
     }
 }
 
-export default Logout; 
+export default Logout;
+
