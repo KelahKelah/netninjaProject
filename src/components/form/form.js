@@ -9,11 +9,11 @@ class Form extends Component {
                 Password: '',
             }
     }
-    handleDataChange = (event) => {
+    handleDataChange = (e) => {
         // this.setState({emial:event.target.value})
         // this.setState({username:event.target.value})
         // this.setState({password:event.target.value})
-        this.setState({[event.target.id]:event.target.value})
+        this.setState({[e.targe.id]:e.target.value})
         console.log('no props',this.state.email)
     }
     handleSubmit = (e) => {
@@ -23,10 +23,11 @@ class Form extends Component {
         } 
     }
     render() {
-        console.log("my object",this.state.email)
+        // console.log("my object",this.state.email)
         return(
-            <div style={{}}>
-                <form onSubmit={this.handleSubmit}>
+            <div style={{ border: '2px solid #4d4d33', margin:'10% 30%', backgroundColor:'#c2c2a3'}}>
+                <form style={{padding: '20%'}} onSubmit={this.handleSubmit}>
+                    <h3>Fill your details to Contact us</h3>
                     <label>Email</label> <br /><br />
                     <input type="text" onChange={this.handleDataChange} id="email" /> <br /><br />
                     <label>Username</label> <br /><br />
