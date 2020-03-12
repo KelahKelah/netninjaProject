@@ -13,7 +13,7 @@ class Form extends Component {
         // this.setState({emial:event.target.value})
         // this.setState({username:event.target.value})
         // this.setState({password:event.target.value})
-        this.setState({[e.targe.id]:e.target.value})
+        this.setState({[e.target.id]:e.target.value})
         console.log('no props',this.state.email)
     }
     handleSubmit = (e) => {
@@ -40,5 +40,5 @@ class Form extends Component {
         )
     }
 }
-export default Form
 
+export default Form;

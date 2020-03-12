@@ -25,6 +25,7 @@ class AddTodo extends Component {
                     <label>Add a new todo</label>
                     </div>
                     <input type="text" onChange={this.handleChange} style={{margin:'3%', width:'130%', display: 'flex', justifyContent: 'center'}} />
+
                 </form>
             </div>
         )
