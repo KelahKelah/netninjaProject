@@ -3,6 +3,7 @@ import TodoList from './todoList';
 import AddTodo from '../todo/addTodo';
 import './todo.css';
 import Axios from 'axios';
+import CompletedTodo from './completedTodo';
 
 class Todo extends Component {
     constructor(props) {
@@ -28,29 +29,32 @@ class Todo extends Component {
         // console.log(id)  
     const deleteMyTodos = this.state.todos.filter(todo => {
     return todo.id !== id });
-    // console.log(deleteMyTodos)
     this.setState({todos: deleteMyTodos})
     }
     
     addTodo = (event) => {
-        // console.log(event)
         event.id = Math.random()
         let todo = [...this.state.todos, event]
         console.log(event)
         this.setState({todos: todo})
     }
-    
+
+    CompletedTodo = (e) => {
+        this.setState({todos: e.target.id})
+    }
     render() {
         //  console.log(this.state.myTodos)
         return(
-            <div className="wrap">
-                <div>
-                    <AddTodo addTodo={this.addTodo} />
-                    {/* changed object name  todos to match endpoint */}
-                    <TodoList myTodos={this.state.todos} deleteTodo={this.deleteTodo} />
+            <div>
+                <AddTodo addTodo={this.addTodo} />
+                <div className="wrapper">
+                    <div>
+                        <CompletedTodo CompletedTodo={this.CompletedTodo} />
+                        <TodoList myTodos={this.state.todos} deleteTodo={this.deleteTodo} completedTodo={this.CompletedTodo} />
+                    </div>
                 </div>
-           
             </div>
+
         )
     }
     

@@ -21,11 +21,10 @@ class AddTodo extends Component {
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <div>
-                    <label>Add a new todo</label>
+                    <div style={{width: '40vw', margin: '5% auto',justifyContent: 'center'}}>
+                        <input style={{width:'90%'}} type="text" placeholder="What will you do today?" onChange={this.handleChange}  />
+                        <span style={{backgroundColor:'#4d4d33'}}>Add</span>
                     </div>
-                    <input type="text" onChange={this.handleChange} style={{margin:'3%', width:'130%', display: 'flex', justifyContent: 'center'}} />
-
                 </form>
             </div>
         )

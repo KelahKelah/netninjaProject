@@ -1,19 +1,21 @@
 import React from 'react';   
+import { FaTrashAlt } from 'react-icons/fa';
+import CompletedTodo from './completedTodo';
  
-const TodoList = ({myTodos, deleteTodo, addTodo}) => {
+const TodoList = ({myTodos, deleteTodo, addTodo, completedTodo}) => {
     const myTodoList = myTodos.length ? (myTodos.map((m,i)=> {
         return (
-        <div key={i} style={{borderBottom:'2px groove black', margin:'3%',borderRadius:'3px', width: '130%', padding:'10px'}}>
+        <div key={i} style={{borderBottom:'2px groove black', alignItems:'center', width: '100%', padding:'10px'}}>
             <div>
+                <span className='mr-3'><input type="checkbox" value=""  onClick={ ()=> {completedTodo(m.id)}} /></span>
                 {m.title}
-            <span style={{color:'#fff', borderRadius: '100%', backgroundColor: 'red', margin: '15px',padding: '2px'}} onClick={()=> {deleteTodo(m.id)}}>x</span>
-
+                <span className="text-danger px-3" onClick={ ()=> {deleteTodo(m.id)}}><FaTrashAlt /></span>
             </div>
             <div>{m.status}</div>    
         </div> )})) 
         : 
-        (<p>You have no Todos</p>)
-
+            (<p>You have no Todos</p>)
+// Dont delete comment
     const myAddTodo = (myTodos =()=> {
         return (
             <div style={{borderBottom:'2px groove black', margin:'3%',borderRadius:'3px'}}>
@@ -22,12 +24,15 @@ const TodoList = ({myTodos, deleteTodo, addTodo}) => {
         )
     })
     return(
-        <div>
+        <div style={myTodoListStyle}>
             {myTodoList}
         </div>
     )
-   
+    
 }
+const myTodoListStyle = {
+    alignItems: 'center',
+    
+}
+
 export default TodoList;
-
-

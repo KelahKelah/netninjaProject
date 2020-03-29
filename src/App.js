@@ -1,26 +1,14 @@
 import React, {Component} from 'react';
-import Navigation from '../src/components/navigation/navigation'
-import './App.css';
-import {BrowserRouter, Route } from 'react-router-dom'
-import Home from '../src/page/home/home'
-import Contact from '../src/page/contact/contact'
-import Logout from '../src/page/logout/logout'
+import Router  from '../src/routes'
 
-
-class App extends Component {
-  render() {
+const App = () => {
     return (
-      <BrowserRouter>
-        <div className="">
-          <Navigation />
-          <Route exact path='/' component={Home} />
-          <Route path='/contact' component={Contact} />
-          <Route path='/logout' component={Logout} />
-        </div>
-      </BrowserRouter>
-    );
-  }
+      <div>
+        <Router />
+        
+      </div>
+     
+    )
 }
-
 
 export default App;
