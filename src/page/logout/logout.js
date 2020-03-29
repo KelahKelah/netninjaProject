@@ -12,7 +12,7 @@ class Logout extends Component {
         this.setState({logout:'Ok! you are Logged out '})
     }
     handleSubmit() {
-        localStorage.setItem(user,)
+        localStorage.setItem()
     }
     // localStorage.clear() {
 
@@ -20,7 +20,7 @@ class Logout extends Component {
     render() {
         // console.log('yes',this.state.logout)
         return(
-            <div style={{ border: '2px solid #4d4d33', margin:'10% 30%', backgroundColor:'#c2c2a3', height:'20vh', padding:'5%'}}>
+            <div style={{ border: '2px solid #4d4d33', margin:'10% 30%', backgroundColor:'#f8f8f8', height:'20vh', padding:'5%'}}>
                 {/* <input type="submit" onClick={this.handleChange} /> */}
                 <p>{this.state.logout}</p>              
         <button type="submit" onClick={this.handleChange}>Logout</button> 

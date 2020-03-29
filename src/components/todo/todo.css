@@ -1,7 +1,7 @@
-.wrap {
+.wrapper {
     border: 2px solid #4d4d33;
-    background-color: #c2c2a3;
-    width: 50vw;
+    background-color: #f8f8f8;
+    width: 40vw;
     height: 60vh;
     margin: 5% auto;
     display: flex;
